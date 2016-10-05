@@ -1,0 +1,31 @@
+application: rivet-web
+version: 1
+runtime: php55
+api_version: 1
+
+handlers:
+#- url: /favicon\.ico
+#  static_files: favicon.ico
+#  upload: favicon\.ico
+#
+
+#- url: /assets
+#  static_dir: assets
+
+#- url: /css
+#  static_dir: css
+
+#- url: /js
+#  static_dir: js
+
+- url: /(.*)$
+  script: \1/index.php
+
+skip_files:
+- ^\.git
+- ^tmp
+- ^upload
+- ^makefile
+- ^deploy\.bat
+- ^composer\.json
+- ^.+\.sublime-project$
