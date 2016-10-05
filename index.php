@@ -2,8 +2,8 @@
 
 define("PORTAL_DOMAIN", "rivetweb.bitrix24.ru");
 
-if (PORTAL_DOMAIN != $_REQUEST["DOMAIN"]) {
-	die("Error domain.");
+if (PORTAL_DOMAIN != $_REQUEST["DOMAIN"] || empty($_POST["AUTH_ID"])) {
+	die("error: Access denied.");
 }
 
 echo "<pre>";
@@ -23,16 +23,6 @@ curl_close($ch);
 var_dump($result);
 
 return;
-
-
-var_dump([
-	"PATH" => dirname($_SERVER["PHP_SELF"]),
-]);
-echo "</pre>";
-
-if (empty($_POST["AUTH_ID"])) {
-	die("error: Access denied.");
-}
 
 $bitrix24 = new Bitrix24([
 	// client_id приложения
