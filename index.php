@@ -2,6 +2,8 @@
 
 define("PORTAL_DOMAIN", "rivetweb.bitrix24.ru");
 
+header("Content-type: text/plain;charset=utf-8");
+
 if (PORTAL_DOMAIN != $_REQUEST["DOMAIN"] || empty($_POST["AUTH_ID"])) {
 	die("error: Access denied.");
 }
